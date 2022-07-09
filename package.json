@@ -1,0 +1,23 @@
+{
+  "name": "remix-testing",
+  "version": "1.0.0",
+  "description": "Testing repository for Remix",
+  "main": "index.js",
+  "author": "Greg Huber",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "seed": "node --loader ts-node/esm seed.ts"
+  },
+  "dependencies": {
+    "@ngneat/falso": "^6.0.3",
+    "@prisma/client": "^4.0.0",
+    "prisma": "^4.0.0",
+    "ts-node": "^10.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "typescript": "^4.7.4"
+  }
+}
