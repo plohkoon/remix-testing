@@ -10,13 +10,13 @@
   "scripts": {
     "seed": "node --loader ts-node/esm seed.ts",
     "copy": "echo \"Error: copy command not implemented\"",
-    "server": "workspace server",
-    "fly": "workspace fly",
-    "workers": "workspace workers",
-    "pages": "workspace pages",
-    "architect": "workspace architect",
-    "netlify": "workspace netlify",
-    "vercel": "workspace vercel",
+    "server": "yarn workspace server",
+    "fly": "yarn workspace fly",
+    "workers": "yarn workspace workers",
+    "pages": "yarn workspace pages",
+    "architect": "yarn workspace architect",
+    "netlify": "yarn workspace netlify",
+    "vercel": "yarn workspace vercel",
     "dev": "yarn server dev"
   },
   "dependencies": {
