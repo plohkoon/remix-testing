@@ -5,10 +5,19 @@
   "main": "index.js",
   "author": "Greg Huber",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "type": "module",
   "scripts": {
-    "seed": "node --loader ts-node/esm seed.ts"
+    "seed": "node --loader ts-node/esm seed.ts",
+    "copy": "echo \"Error: copy command not implemented\"",
+    "server": "workspace server",
+    "fly": "workspace fly",
+    "workers": "workspace workers",
+    "pages": "workspace pages",
+    "architect": "workspace architect",
+    "netlify": "workspace netlify",
+    "vercel": "workspace vercel",
+    "dev": "yarn server dev"
   },
   "dependencies": {
     "@ngneat/falso": "^6.0.3",
@@ -19,5 +28,16 @@
   "devDependencies": {
     "@types/node": "^18.0.3",
     "typescript": "^4.7.4"
+  },
+  "workspaces": {
+    "packages": [
+      "server",
+      "fly",
+      "workers",
+      "pages",
+      "architect",
+      "netlify",
+      "vercel"
+    ]
   }
 }
