@@ -1,10 +1,10 @@
-import { readdirSync, readFileSync, statSync } from "fs";
-import { join } from "path";
+import { mkdirSync, readdirSync, readFileSync, rmdirSync, rmSync, statSync, writeFileSync } from "fs";
+import { basename, dirname, join } from "path";
 import { cwd, exit } from "process";
 import Package from "./package.json";
 
 const CHANGED_REMIX_IMPORTS = {
-  "netlify": "@remix-run/netlify",
+  "netlify": "@remix-run/node",
   "architect": "@remix-run/node",
   "fly": "@remix-run/node",
   "pages": "@remix-run/cloudflare",
@@ -44,18 +44,21 @@ const sourceFileContents = new Map<string, string>()
 function duplicate(target: string) {
   const targetApp = join(cwd(), target, "app")
 
+  readdirSync(targetApp).forEach(file => rmSync(join(targetApp, file), { recursive: true }))
+
   sourceFiles.forEach(file => {
     if (!sourceFileContents.has(file)) {
       sourceFileContents.set(file, readFileSync(file, "utf8"))
     }
 
-    const content = sourceFileContents.get(file)
+    const content = sourceFileContents.get(file) || ""
 
-    const targetContent = content?.replace("@remix-run/node", `@remix-run/${CHANGED_REMIX_IMPORTS[target as keyof typeof CHANGED_REMIX_IMPORTS]}`)
+    const targetContent = content.replace("@remix-run/node", `${CHANGED_REMIX_IMPORTS[target as keyof typeof CHANGED_REMIX_IMPORTS]}`)
 
     const newPath = file.replace(sourceApp, targetApp)
+    mkdirSync(dirname(newPath), { recursive: true })
 
-    console.log(newPath)
+    writeFileSync(newPath, targetContent)
   })
 }
 
