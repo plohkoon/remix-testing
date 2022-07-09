@@ -9,6 +9,7 @@
   "type": "module",
   "scripts": {
     "seed": "node --loader ts-node/esm seed.ts",
+    "sync": "node --loader ts-node/esm --experimental-json-modules sync.ts",
     "copy": "echo \"Error: copy command not implemented\"",
     "server": "yarn workspace server",
     "fly": "yarn workspace fly",
@@ -32,12 +33,12 @@
   "workspaces": {
     "packages": [
       "server",
-      "fly",
-      "workers",
-      "pages",
       "architect",
+      "fly",
       "netlify",
-      "vercel"
+      "pages",
+      "vercel",
+      "workers"
     ]
   }
 }
