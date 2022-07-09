@@ -46,7 +46,7 @@ console.log("CREATED USERS:", userCount)
 
 const newPosts: Pick<Post, "title" | "content" | "published" | "authorId">[] = []
 
-const users = await prisma.user.findMany()
+const users = await prisma.user.findMany({ take: 99_999, orderBy: { name: "asc" } })
 
 const postsToMake = TOTAL_POSTS - existingPosts
 
@@ -73,7 +73,7 @@ process.stdout.write("\n")
 
 console.log("CREATED POSTS:", postCount)
 
-const posts = await prisma.post.findMany()
+const posts = await prisma.post.findMany({ take: 7_000, orderBy: { title: "asc" }, where: { published: true } })
 
 const newComments: Pick<Comment, "text" | "authorId" | "postId">[] = []
 
