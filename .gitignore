@@ -1,3 +1,4 @@
 node_modules
 # Keep environment variables out of version control
 .env
+pscale_dump_remix-testing_main
