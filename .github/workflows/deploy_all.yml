@@ -47,7 +47,7 @@ jobs:
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
           echo "Retriggering..."
-          curl -X POST -h "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/OWNER/REPO/actions/workflows/WORKFLOW_ID/dispatches -d '{"ref":"main","inputs":{}}'
+          curl -X POST -h "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/OWNER/REPO/actions/workflows/Deploy/dispatches -d '{"ref":"main","inputs":{}}'
           echo "Retriggered!"
 
   # architect:
