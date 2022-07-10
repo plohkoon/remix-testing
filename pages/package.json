@@ -5,6 +5,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
+    "predeploy": "yarn build",
+    "deploy": "yarn wrangler pages publish ./public --project-name remix-testing",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
     "dev": "remix build && run-p \"dev:*\"",
