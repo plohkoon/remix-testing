@@ -146,7 +146,7 @@ jobs:
       - name: Build Vercel
         run: cd vercel && yarn vercel build --token ${{ secrets.VERCEL_TOKEN }}
       - name: Publish Vercel
-        run: cd vercel && yarn vercel deploy --token ${{ secrets.VERCEL_TOKEN }}
+        run: cd vercel && yarn vercel deploy --token ${{ secrets.VERCEL_TOKEN }} --prod
 
   workers:
     name: Publish Worker
