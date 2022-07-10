@@ -43,6 +43,7 @@ jobs:
           default_author: github_actions
           message: Sync targets
         if: steps.verify-changed-files.outputs.files_changed == 'true'
+      # TODO prevent this from running off of a manual run (infinite loop?)
       - name: Retrigger
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
