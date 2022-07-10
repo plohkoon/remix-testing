@@ -35,3 +35,45 @@ jobs:
         run: cd netlify && echo "TODO"
       - name: Publish Vercel
         run: cd vercel && echo "TODO"
+
+  sync:
+    name: Sync Files Across Deploy Targets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Setup dependencies
+        run: yarn install
+      - name: Sync files
+        run: yarn sync
+      - name: Check if files changed
+        uses: tj-actions/verify-changed-files@v10
+        id: verify-changed-files
+        with:
+          files: |
+            architect/app/**/*
+            fly/app/**/*
+            netlify/app/**/*
+            pages/app/**/*
+            vercel/app/**/*
+            workers/app/**/*
+      # Commit and bail if anything changes
+      - name: Commit
+        run: EndBug/add-and-commit@v9
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        with:
+          add: architect fly netlify pages vercel workers
+          author_name: Sync Bot
+          author_email: greg.huber@outlook.com
+          commit: --signoff
+          committer_name: Sync Bot
+          committer_email: greg.huber@outlook.com
+          default_author: github_actor
+          message: Sync targets
+      - name: Exit
+        run: exit 1
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
