@@ -108,7 +108,10 @@ jobs:
       - name: Setup dependencies
         run: yarn install
       - name: Publish Pages
-        run: cd pages && yarn deploy
+        run: yarn workspace pages deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
 
   # vercel:
   #   name: Publish Vercel
@@ -142,7 +145,7 @@ jobs:
       - name: Setup dependencies
         run: yarn install
       - name: Publish Worker
-        run: cd workers && npx wrangler publish
+        run: yarn workspace workers deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
