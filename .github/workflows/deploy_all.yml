@@ -5,8 +5,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-    tags:
-      description: Retrigger
+    inputs: {}
 
 jobs:
   sync:
