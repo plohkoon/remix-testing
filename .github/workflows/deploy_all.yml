@@ -137,11 +137,11 @@ jobs:
       - name: Setup dependencies
         run: yarn install
       - name: Pull Vercel
-        run: yarn workspace vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
+        run: cd vercel && yarn vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Build Vercel
-        run: yarn workspace vercel build --token ${{ secrets.VERCEL_TOKEN }}
+        run: cd vercel && yarn vercel build --token ${{ secrets.VERCEL_TOKEN }}
       - name: Publish Vercel
-        run: yarn workspace vercel deploy --token ${{ secrets.VERCEL_TOKEN }}
+        run: cd vercel && yarn vercel deploy --token ${{ secrets.VERCEL_TOKEN }}
 
   workers:
     name: Publish Worker
