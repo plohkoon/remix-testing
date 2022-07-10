@@ -105,6 +105,7 @@ jobs:
         run: cd netlify && yarn netlify deploy --dir=public --functions=.netlify --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   pages:
     name: Publish Pages
