@@ -13,6 +13,8 @@ function* chunks<T>(arr: T[], n: number) {
 
 const prisma = new PrismaClient()
 
+// We want specific numbers in the database so start by getting how
+// many users, posts, and comments we already have
 const existingUsers = await prisma.user.count()
 const existingPosts = await prisma.post.count()
 const existingComments = await prisma.comment.count()
