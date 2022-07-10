@@ -6,35 +6,35 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy the App
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - name: Setup dependencies
-        run: yarn install
-      - name: Sync files
-        run: yarn sync
-      - name: Publish Workers
-        run: cd wrangler && npx wrangler publish
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-      - name: Publish Pages
-        run: cd pages && echo "TODO"
-      - name: Publish Architect
-        run: cd architect && echo "TODO"
-      - name: Publish Fly
-        run: cd fly && echo "TODO"
-      - name: Publish Netlify
-        run: cd netlify && echo "TODO"
-      - name: Publish Vercel
-        run: cd vercel && echo "TODO"
+  # deploy:
+  #   name: Deploy the App
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup node
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 16
+  #     - name: Setup dependencies
+  #       run: yarn install
+  #     - name: Sync files
+  #       run: yarn sync
+  #     - name: Publish Workers
+  #       run: cd wrangler && npx wrangler publish
+  #       env:
+  #         CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+  #         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+  #     - name: Publish Pages
+  #       run: cd pages && echo "TODO"
+  #     - name: Publish Architect
+  #       run: cd architect && echo "TODO"
+  #     - name: Publish Fly
+  #       run: cd fly && echo "TODO"
+  #     - name: Publish Netlify
+  #       run: cd netlify && echo "TODO"
+  #     - name: Publish Vercel
+  #       run: cd vercel && echo "TODO"
 
   sync:
     name: Sync Files Across Deploy Targets
