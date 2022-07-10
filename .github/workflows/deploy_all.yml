@@ -47,7 +47,7 @@ jobs:
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
           echo "Retriggering..."
-          curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/plohkoon/remix-testing/actions/workflows/deploy_all/dispatches -d '{"ref":"main","inputs":{}}'
+          curl -X POST -H "Authorization: token ${{ secrets.GH_PAC }}" https://api.github.com/repos/plohkoon/remix-testing/actions/workflows/deploy_all.yml/dispatches -d '{"ref": "main"}'
           echo "Retriggered!"
 
   # architect:
