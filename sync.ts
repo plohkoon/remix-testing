@@ -1,7 +1,7 @@
 import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { cwd, exit } from "process";
-import Package from "./package.json";
+import Package from "./package.json" assert { type: 'json' };
 
 const CHANGED_REMIX_IMPORTS = {
   "netlify": "@remix-run/node",
