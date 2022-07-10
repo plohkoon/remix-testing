@@ -1,5 +1,5 @@
-import { mkdirSync, readdirSync, readFileSync, rmdirSync, rmSync, statSync, writeFileSync } from "fs";
-import { basename, dirname, join } from "path";
+import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
+import { dirname, join } from "path";
 import { cwd, exit } from "process";
 import Package from "./package.json";
 
