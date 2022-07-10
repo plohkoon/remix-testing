@@ -1,13 +1,15 @@
-name = "remix-cloudflare-workers"
+name = "remix-testing"
 
-account_id = ""
+zone_id = "cec98dba01cd801efa8c8872b6965ecd"
+account_id = "f03ace5e69ab2a529ec5ec8a795e4507"
 workers_dev = true
+
 main = "./build/index.js"
-# https://developers.cloudflare.com/workers/platform/compatibility-dates
+
 compatibility_date = "2022-04-05"
 
 [site]
-  bucket = "./public"
+bucket = "./public"
 
 [build]
-  command = "npm run build"
+command = "yarn build"

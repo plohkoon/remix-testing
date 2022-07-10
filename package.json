@@ -18,7 +18,8 @@
     "architect": "yarn workspace architect",
     "netlify": "yarn workspace netlify",
     "vercel": "yarn workspace vercel",
-    "dev": "yarn server dev"
+    "dev": "yarn server dev",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@ngneat/falso": "^6.0.3",
