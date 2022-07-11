@@ -65,6 +65,8 @@ jobs:
           node-version: 16
       - name: Setup dependencies
         run: yarn install
+      - name: Build
+        run: cd architect && yarn build
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
       - name: Publish Architect
