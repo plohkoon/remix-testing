@@ -1,5 +1,5 @@
 @app
-remix-architect-app
+remix-testing
 
 @http
 /*
@@ -8,7 +8,6 @@ remix-architect-app
 
 @static
 
-# @aws
-# profile default
-# region us-west-1
+@aws
+region us-west-2
   
