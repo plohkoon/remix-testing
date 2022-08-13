@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
     inputs: {}
 
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
 jobs:
   sync:
     name: Sync Files Across Deploy Targets
