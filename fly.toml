@@ -1,4 +1,4 @@
-# fly.toml file generated for plohkoon-remix-testing on 2022-07-09T17:27:47-07:00
+# fly.toml file generated for plohkoon-remix-testing on 2022-08-13T10:32:30-07:00
 
 app = "plohkoon-remix-testing"
 kill_signal = "SIGINT"
