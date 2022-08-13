@@ -75,7 +75,7 @@ jobs:
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
       - name: Publish Architect
-        run: cd architect && yarn arc deploy --production -v
+        run: cd architect && yarn arc deploy --production -v --no-hydrate
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
