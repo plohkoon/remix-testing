@@ -19,6 +19,7 @@
     "netlify": "yarn workspace netlify",
     "vercel": "yarn workspace vercel",
     "dev": "yarn server dev",
+    "prisma:generate": "yarn prisma generate && yarn workspace architect prisma generate && yarn workspace fly prisma generate && yarn workspace netlify prisma generate && yarn workspace pages prisma generate && yarn workspace server prisma generate && yarn workspace vercel prisma generate && yarn workspace workers prisma generate",
     "postinstall": "prisma generate"
   },
   "dependencies": {

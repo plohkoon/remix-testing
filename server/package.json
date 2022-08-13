@@ -6,8 +6,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "remix-serve build",
-    "postinstall": "prisma generate"
+    "start": "remix-serve build"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
@@ -27,10 +26,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "workspaces": {
-    "nohoist": [
-      "@prisma/client"
-    ]
   }
 }

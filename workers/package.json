@@ -9,8 +9,7 @@
     "dev:remix": "remix watch",
     "dev:miniflare": "cross-env NODE_ENV=development miniflare ./build/index.js --watch",
     "dev": "remix build && run-p \"dev:*\"",
-    "start": "cross-env NODE_ENV=production miniflare ./build/index.js",
-    "postinstall": "prisma generate"
+    "start": "cross-env NODE_ENV=production miniflare ./build/index.js"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
@@ -34,10 +33,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "workspaces": {
-    "nohoist": [
-      "@prisma/client"
-    ]
   }
 }
