@@ -4,6 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "prebuild": "prisma generate --data-proxy",
     "build": "remix build",
     "predeploy": "yarn build",
     "deploy": "yarn wrangler pages publish ./public --project-name remix-testing",
@@ -34,5 +35,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@prisma/client"
+    ]
   }
 }
