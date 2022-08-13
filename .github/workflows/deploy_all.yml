@@ -66,14 +66,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
-      # - name: Setup dependencies
-      #   run: yarn install
-      - name: Build
-        run: cd architect && yarn build
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
-      - name: Generate Prisma
-        run: yarn prisma generate
+      - name: Build
+        run: cd architect && yarn build
       - name: Publish Architect
         run: cd architect && yarn arc deploy --production -v --prune
         env:
@@ -162,9 +158,9 @@ jobs:
       - name: Pull Vercel
         run: cd vercel && yarn vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
       - name: Build Vercel
-        run: cd vercel && yarn vercel build --token ${{ secrets.VERCEL_TOKEN }}
+        run: cd vercel && yarn vercel build --token ${{ secrets.VERCEL_TOKEN }} --prod
       - name: Publish Vercel
-        run: cd vercel && yarn vercel deploy --token ${{ secrets.VERCEL_TOKEN }} --prod
+        run: cd vercel && yarn vercel deploy --token ${{ secrets.VERCEL_TOKEN }} --prod --prebuilt
 
   workers:
     name: Publish Worker

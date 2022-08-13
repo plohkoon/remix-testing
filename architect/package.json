@@ -32,10 +32,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "workspaces": {
-    "nohoist": [
-      "@prisma/client"
-    ]
   }
 }
