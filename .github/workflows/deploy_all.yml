@@ -131,6 +131,8 @@ jobs:
           node-version: 16
       - name: Setup dependencies
         run: yarn install
+      - name: Generate Prisma
+        run: yarn prisma generate --data-proxy
       - name: Publish Pages
         run: yarn workspace pages deploy
         env:
@@ -172,6 +174,8 @@ jobs:
           node-version: 16
       - name: Setup dependencies
         run: yarn install
+      - name: Generate Prisma
+        run: yarn prisma generate --data-proxy
       - name: Publish Worker
         run: yarn workspace workers deploy
         env:

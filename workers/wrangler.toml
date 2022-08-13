@@ -13,3 +13,6 @@ bucket = "./public"
 
 [build]
 command = "yarn build"
+
+[vars]
+DATABASE_URL = "prisma://aws-us-east-1.prisma-data.com/?api_key=J4Pj0SKf84QrQzGLDhGdHLaWZxxF7ZWKUGhKmzkbeFscIpw_AL1EIaiwKQ_FaMIp"
