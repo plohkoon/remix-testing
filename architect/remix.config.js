@@ -6,5 +6,5 @@ module.exports = {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: "server/index.js",
-  // publicPath: "/_static/build/",
+  publicPath: "/build/",
 };

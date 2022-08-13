@@ -73,7 +73,7 @@ jobs:
       - name: Build
         run: cd architect && yarn build
       - name: Publish Architect
-        run: cd architect && yarn arc deploy --production -v --prune
+        run: cd architect && yarn arc deploy --production -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
