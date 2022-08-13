@@ -66,6 +66,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+      - name: Setup dependencies
+        run: yarn install
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
       - name: Build
