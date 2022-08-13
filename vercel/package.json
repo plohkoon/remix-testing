@@ -7,9 +7,11 @@
     "build": "remix build",
     "predeploy": "vercel pull --yes && vercel build",
     "deploy": "vercel deploy --prebuilt",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^4.0.0",
     "@remix-run/node": "^1.6.4",
     "@remix-run/react": "^1.6.4",
     "@remix-run/vercel": "^1.6.4",
@@ -29,5 +31,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@prisma/client"
+    ]
   }
 }

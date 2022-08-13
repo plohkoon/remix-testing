@@ -41,7 +41,9 @@ const targets = packages.slice(1);
 
 // Get the paths of all files in the source app
 const sourceApp = join(cwd(), source, "app")
+const sourcePrisma = join(cwd(), source, "prisma")
 const sourceFiles = readdirRecursivelySync(sourceApp);
+const sourcePrismaFiles = readdirRecursivelySync(sourcePrisma);
 
 // Cache the contents of the file so we don't have to read it again and again
 const sourceFileContents = new Map<string, string>()
@@ -67,6 +69,25 @@ function duplicate(target: string) {
     mkdirSync(dirname(newPath), { recursive: true })
 
     writeFileSync(newPath, targetContent)
+  })
+
+  // Copy the prisma folder to the target app
+  const targetPrisma = join(cwd(), target, "prisma")
+
+  // Ensure the app folder is empty (don't want/need old files around)
+  readdirSync(targetPrisma).forEach(file => rmSync(join(targetApp, file), { recursive: true }))
+
+  sourcePrismaFiles.forEach(file => {
+    if (!sourceFileContents.has(file)) {
+      sourceFileContents.set(file, readFileSync(file, "utf8"))
+    }
+
+    const content = sourceFileContents.get(file) || ""
+
+    const newPath = file.replace(sourcePrisma, targetPrisma)
+    mkdirSync(dirname(newPath), { recursive: true })
+
+    writeFileSync(newPath, content)
   })
 }
 

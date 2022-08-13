@@ -6,10 +6,12 @@
   "scripts": {
     "build": "remix build",
     "dev": "cross-env NODE_ENV=development netlify dev",
-    "start": "cross-env NODE_ENV=production netlify dev"
+    "start": "cross-env NODE_ENV=production netlify dev",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@netlify/functions": "^1.0.0",
+    "@prisma/client": "^4.0.0",
     "@remix-run/netlify": "^1.6.4",
     "@remix-run/node": "^1.6.4",
     "@remix-run/react": "^1.6.4",
@@ -28,5 +30,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@prisma/client"
+    ]
   }
 }
