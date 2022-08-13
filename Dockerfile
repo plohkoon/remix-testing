@@ -38,8 +38,8 @@ RUN yarn install
 ENV NODE_ENV=production
 
 # If we're using Prisma, uncomment to cache the prisma schema
-# ADD prisma .
-# RUN npx prisma generate
+ADD prisma .
+RUN npx prisma generate
 
 ADD . .
 RUN yarn workspace fly build
@@ -56,7 +56,7 @@ COPY --from=production-deps /app/node_modules /app/node_modules
 COPY --from=production-deps /app/fly/node_modules /app/fly/node_modules
 
 # Uncomment if using Prisma
-# COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
+COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
 
 COPY --from=build /app/fly/build /app/fly/build
 COPY --from=build /app/fly/public /app/fly/public
