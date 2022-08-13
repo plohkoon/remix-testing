@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "prebuild": "prisma generate",
+    "postinstall": "prisma generate",
     "build": "remix build",
     "dev:remix": "remix watch",
     "dev:arc": "cross-env NODE_ENV=development arc sandbox",
