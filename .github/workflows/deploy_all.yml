@@ -66,14 +66,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
-      - name: Setup dependencies
-        run: yarn install
-      - name: Generate Prisma
-        run: yarn prisma generate
+      # - name: Setup dependencies
+      #   run: yarn install
       - name: Build
         run: cd architect && yarn build
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
+      - name: Generate Prisma
+        run: yarn prisma generate
       - name: Publish Architect
         run: cd architect && yarn arc deploy --production -v --prune
         env:

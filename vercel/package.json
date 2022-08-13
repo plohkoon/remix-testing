@@ -4,11 +4,11 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "prebuild": "prisma generate",
     "build": "remix build",
     "predeploy": "vercel pull --yes && vercel build",
     "deploy": "vercel deploy --prebuilt",
-    "dev": "remix dev",
-    "vercel-build": "yarn prisma generate && yarn build"
+    "dev": "remix dev"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
@@ -31,5 +31,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@prisma/client"
+    ]
   }
 }
