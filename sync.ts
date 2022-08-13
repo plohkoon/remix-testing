@@ -63,7 +63,11 @@ function duplicate(target: string) {
 
     const content = sourceFileContents.get(file) || ""
 
-    const targetContent = content.replace("@remix-run/node", `${CHANGED_REMIX_IMPORTS[target as keyof typeof CHANGED_REMIX_IMPORTS]}`)
+    let targetContent = content.replace("@remix-run/node", `${CHANGED_REMIX_IMPORTS[target as keyof typeof CHANGED_REMIX_IMPORTS]}`)
+
+    if (target.match(/pages|worker/)) {
+      targetContent = targetContent.replace("@prisma/client", "@prisma/client/edge")
+    }
 
     const newPath = file.replace(sourceApp, targetApp)
     mkdirSync(dirname(newPath), { recursive: true })

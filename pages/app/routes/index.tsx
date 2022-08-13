@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client/edge";
 import { json, type LoaderFunction } from "@remix-run/cloudflare";
 
 
