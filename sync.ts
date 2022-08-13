@@ -75,7 +75,7 @@ function duplicate(target: string) {
   const targetPrisma = join(cwd(), target, "prisma")
 
   // Ensure the app folder is empty (don't want/need old files around)
-  readdirSync(targetPrisma).forEach(file => rmSync(join(targetApp, file), { recursive: true }))
+  readdirSync(targetPrisma).forEach(file => rmSync(join(targetPrisma, file), { recursive: true }))
 
   sourcePrismaFiles.forEach(file => {
     if (!sourceFileContents.has(file)) {

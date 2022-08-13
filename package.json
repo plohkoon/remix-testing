@@ -8,8 +8,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "seed": "node --loader ts-node/esm seed.ts",
-    "sync": "node --loader ts-node/esm --experimental-json-modules sync.ts",
+    "seed": "tsx seed.ts",
+    "sync": "tsx --experimental-json-modules sync.ts",
     "copy": "echo \"Error: copy command not implemented\"",
     "server": "yarn workspace server",
     "fly": "yarn workspace fly",
