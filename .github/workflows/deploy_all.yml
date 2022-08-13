@@ -70,10 +70,10 @@ jobs:
         run: yarn install
       - name: Prisma Generate
         run: yarn prisma generate
-      - name: Arc hydrate
-        run: cd architect && yarn arc hydrate
       - name: Build
         run: cd architect && yarn build
+      - name: Arc hydrate
+        run: cd architect && yarn arc hydrate
       - name: Publish Architect
         run: cd architect && yarn arc deploy --production -v
         env:
