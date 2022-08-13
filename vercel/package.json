@@ -7,7 +7,8 @@
     "build": "remix build",
     "predeploy": "vercel pull --yes && vercel build",
     "deploy": "vercel deploy --prebuilt",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "vercel-build": "yarn prisma generate && yarn build"
   },
   "dependencies": {
     "@prisma/client": "^4.0.0",
