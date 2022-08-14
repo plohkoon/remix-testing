@@ -1,6 +1,4 @@
-import { User } from "@prisma/client";
-import { sqltag } from "@prisma/client/runtime";
-import { json, LoaderFunction, type LinksFunction, type MetaFunction } from "@remix-run/node";
+import { json, type LoaderFunction, type LinksFunction, type MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -31,9 +29,10 @@ export const meta: MetaFunction = () => ({
 });
 
 export const loader: LoaderFunction = async () => {
+  const count = await prismaClient.user.count();
   const user = await prismaClient.user.findFirst({
     take: 1,
-    skip: Math.floor(Math.random() * 1000)
+    skip: Math.floor(Math.random() * count)
   })
 
   return json({ user })
