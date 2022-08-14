@@ -4,8 +4,11 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "prebuild": "tailwindcss -o ./app/styles.css",
     "build": "remix build",
-    "dev": "remix dev",
+    "dev:css": "tailwindcss -o ./app/styles.css --watch",
+    "dev:remix": "remix dev",
+    "dev": "run-p dev:*",
     "start": "remix-serve build"
   },
   "dependencies": {
@@ -19,9 +22,13 @@
   "devDependencies": {
     "@remix-run/dev": "^1.6.4",
     "@remix-run/eslint-config": "^1.6.4",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.4",
     "@types/react": "^17.0.45",
     "@types/react-dom": "^17.0.17",
     "eslint": "^8.15.0",
+    "tailwindcss": "^3.1.8",
     "typescript": "^4.6.4"
   },
   "engines": {
