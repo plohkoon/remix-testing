@@ -4,6 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "postinstall": "prisma generate",
     "prebuild": "prisma generate",
     "build": "remix build",
     "dev:remix": "remix watch",
