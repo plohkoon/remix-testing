@@ -1,13 +1,14 @@
 import { Link } from "@remix-run/react"
+import { BeakerIcon } from "@heroicons/react/solid"
 
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
-  { name: '1', href: '/1' },
-  { name: '10', href: '/10' },
-  { name: '50', href: '/50' },
-  { name: '100', href: '/100' },
-  { name: '500', href: '/500' },
-  { name: '1000', href: '/1000' },
+  { name: 'One', href: '/1' },
+  { name: 'Ten', href: '/10' },
+  { name: 'Fifty', href: '/50' },
+  { name: 'One Hundred', href: '/100' },
+  { name: 'Five Hundred', href: '/500' },
+  { name: 'One Thousand', href: '/1000' },
 ]
 
 export default function Header({
@@ -18,17 +19,13 @@ export default function Header({
   profileUrl: string;
 }) {
   return (
-    <header className="bg-sky-600">
+    <header className="bg-sky-600 z-[1000] sticky t-0">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="w-full py-6 flex items-center justify-between border-b border-sky-500 lg:border-none">
           <div className="flex items-center">
             <Link to="/">
               <span className="sr-only">Remix Testing</span>
-              <img
-                className="h-10 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-                alt=""
-              />
+              <BeakerIcon className="h-10 w-10 text-white" />
             </Link>
             <div className="hidden ml-10 space-x-8 lg:block">
               {navigation.map((link) => (
@@ -38,7 +35,11 @@ export default function Header({
               ))}
             </div>
           </div>
-          <div className="ml-10 space-x-4">
+          <div className="ml-10 space-x-4 flex items-center group cursor-pointer">
+            <div className="ml-3">
+              <p className="text-md font-medium text-white group-hover:text-gray-300">{name}</p>
+              <p className="text-xs font-medium text-white group-hover:text-gray-200">View profile</p>
+            </div>
             <span className="inline-block relative">
               <img
                 className="h-14 w-14 rounded-full"

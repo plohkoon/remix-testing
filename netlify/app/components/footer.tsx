@@ -1,3 +1,6 @@
+import { BeakerIcon } from "@heroicons/react/solid"
+import { Link } from "@remix-run/react"
+
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
   {
@@ -75,8 +78,11 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <div className="mt-8 md:mt-0 md:order-1">
-          <p className="text-center text-base text-gray-400">&copy; 2022 Remix Testing</p>
+        <div className="mt-8 md:mt-0 md:order-1 flex flex-row align-center space-x-4">
+          <Link to="/">
+            <BeakerIcon className="text-gray-400 w-10 h-10" />
+          </Link>
+          <p className="text-center text-base text-gray-400 py-1">&copy; 2022 Remix Testing</p>
         </div>
       </div>
     </footer>

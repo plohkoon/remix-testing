@@ -1,6 +1,5 @@
-import { User } from "@prisma/client";
-import { sqltag } from "@prisma/client/runtime";
-import { json, LoaderFunction, type LinksFunction, type MetaFunction } from "@remix-run/node";
+import { type User } from "@prisma/client";
+import { json, type LinksFunction, type MetaFunction, type LoaderArgs } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -26,21 +25,22 @@ export const links: LinksFunction = () => [
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Remix Testing",
   viewport: "width=device-width,initial-scale=1",
 });
 
-export const loader: LoaderFunction = async () => {
+export const loader = async (args: LoaderArgs) => {
+  const count = await prismaClient.user.count();
   const user = await prismaClient.user.findFirst({
     take: 1,
-    skip: Math.floor(Math.random() * 1000)
-  })
+    skip: Math.floor(Math.random() * count)
+  }) as User
 
   return json({ user })
 }
 
 export default function App() {
-  const { user } = useLoaderData();
+  const { user } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
