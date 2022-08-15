@@ -14,6 +14,7 @@
     "start": "cross-env NODE_ENV=production npm run dev:wrangler"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@prisma/client": "^4.0.0",
     "@remix-run/cloudflare": "^1.6.4",
     "@remix-run/cloudflare-pages": "^1.6.4",

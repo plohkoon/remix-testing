@@ -13,6 +13,7 @@
     "start": "cross-env NODE_ENV=production arc sandbox"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@prisma/client": "^4.0.0",
     "@remix-run/architect": "^1.6.4",
     "@remix-run/node": "^1.6.4",
