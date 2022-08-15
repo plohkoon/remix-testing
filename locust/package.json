@@ -1,0 +1,16 @@
+{
+  "name": "locust",
+  "version": "1.0.0",
+  "description": "Locust specs",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "swarm": "python -m locust --headless -f ./locustfile.py -u 5 -r 1",
+    "architect": "yarn swarm --host https://architect.remix.tallrandy.dev --csv=csvs/architect",
+    "fly": "yarn swarm --host https://fly.remix.tallrandy.dev --csv=csvs/fly",
+    "netlify": "yarn swarm --host https://netlify.remix.tallrandy.dev --csv=csvs/netlify",
+    "pages": "yarn swarm --host https://pages.remix.tallrandy.dev --csv=csvs/pages",
+    "vercel": "yarn swarm --host https://vercel.remix.tallrandy.dev --csv=csvs/vercel",
+    "worker": "yarn swarm --host https://worker.remix.tallrandy.dev --csv=csvs/worker"
+  }
+}
