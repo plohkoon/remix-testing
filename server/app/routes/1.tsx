@@ -1,10 +1,10 @@
-import { json, type LoaderFunction } from "@remix-run/node"
+import { json, redirect, type LoaderArgs } from "@remix-run/node"
 import { useLoaderData } from "@remix-run/react"
 import Comments from "~/components/1/comments"
 import Content from "~/components/1/content"
 import { prismaClient } from "~/utils/prisma.server"
 
-export const loader: LoaderFunction = async () => {
+export const loader = async (args: LoaderArgs) => {
   const count = await prismaClient.post.count()
   const post = await prismaClient.post.findFirst({
     take: 1,
@@ -19,11 +19,15 @@ export const loader: LoaderFunction = async () => {
     }
   })
 
+  if (!post) {
+    throw redirect("/")
+  }
+
   return json({ post });
 }
 
 const One = () => {
-  const { post } = useLoaderData();
+  const { post } = useLoaderData<typeof loader>();
 
   return (
     <>
