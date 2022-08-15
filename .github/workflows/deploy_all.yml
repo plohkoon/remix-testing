@@ -68,12 +68,12 @@ jobs:
           node-version: 16
       - name: Setup dependencies
         run: yarn install
-      - name: Prisma Generate
-        run: yarn prisma generate
       - name: Build
         run: cd architect && yarn build
       - name: Arc hydrate
         run: cd architect && yarn arc hydrate
+      - name: Prisma Generate
+        run: yarn prisma generate
       - name: Publish Architect
         run: cd architect && yarn arc deploy --production -v --no-hydrate
         env:
