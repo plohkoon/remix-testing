@@ -75,24 +75,24 @@ function duplicate(target: string) {
     writeFileSync(newPath, targetContent)
   })
 
-  // Copy the prisma folder to the target app
-  const targetPrisma = join(cwd(), target, "prisma")
+  // // Copy the prisma folder to the target app
+  // const targetPrisma = join(cwd(), target, "prisma")
 
-  // Ensure the app folder is empty (don't want/need old files around)
-  readdirSync(targetPrisma).forEach(file => rmSync(join(targetPrisma, file), { recursive: true }))
+  // // Ensure the app folder is empty (don't want/need old files around)
+  // readdirSync(targetPrisma).forEach(file => rmSync(join(targetPrisma, file), { recursive: true }))
 
-  sourcePrismaFiles.forEach(file => {
-    if (!sourceFileContents.has(file)) {
-      sourceFileContents.set(file, readFileSync(file, "utf8"))
-    }
+  // sourcePrismaFiles.forEach(file => {
+  //   if (!sourceFileContents.has(file)) {
+  //     sourceFileContents.set(file, readFileSync(file, "utf8"))
+  //   }
 
-    const content = sourceFileContents.get(file) || ""
+  //   const content = sourceFileContents.get(file) || ""
 
-    const newPath = file.replace(sourcePrisma, targetPrisma)
-    mkdirSync(dirname(newPath), { recursive: true })
+  //   const newPath = file.replace(sourcePrisma, targetPrisma)
+  //   mkdirSync(dirname(newPath), { recursive: true })
 
-    writeFileSync(newPath, content)
-  })
+  //   writeFileSync(newPath, content)
+  // })
 }
 
 for (const target of targets) {
