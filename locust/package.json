@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "swarm": "python -m locust --headless -f ./locustfile.py -u 5 -r 1",
+    "swarm": "python -m locust --headless -f ./locustfile.py -u 5 -r 1 -t 10m",
     "architect": "yarn swarm --host https://architect.remix.tallrandy.dev --csv=csvs/architect",
     "fly": "yarn swarm --host https://fly.remix.tallrandy.dev --csv=csvs/fly",
     "netlify": "yarn swarm --host https://netlify.remix.tallrandy.dev --csv=csvs/netlify",

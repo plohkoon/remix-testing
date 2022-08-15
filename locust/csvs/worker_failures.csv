@@ -1,0 +1,9 @@
+Method,Name,Error,Occurrences
+GET,thousand_page,HTTPError('503 Server Error: Service Temporarily Unavailable for url: thousand_page'),13
+GET,hundred_page,HTTPError('503 Server Error: Service Temporarily Unavailable for url: hundred_page'),1
+GET,ten_page,HTTPError('500 Server Error: Internal Server Error for url: ten_page'),1
+GET,thousand_data,HTTPError('503 Server Error: Service Temporarily Unavailable for url: thousand_data'),5
+GET,five_hundred_data,HTTPError('503 Server Error: Service Temporarily Unavailable for url: five_hundred_data'),2
+GET,five_hundred_page,HTTPError('503 Server Error: Service Temporarily Unavailable for url: five_hundred_page'),6
+GET,one_page,HTTPError('500 Server Error: Internal Server Error for url: one_page'),1
+GET,hundred_page,HTTPError('500 Server Error: Internal Server Error for url: hundred_page'),1
