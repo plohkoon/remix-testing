@@ -22,7 +22,10 @@ export const loader = async (args: LoaderArgs) => {
     title: p.title,
     content: p.content,
     published: p.published,
-    author: p.author,
+    author: {
+      ...p.author,
+      avatar: `https://joeschmoe.io/api/v1/${p.author.name}`
+    },
     commentCount: p.comments.length
   }))
 

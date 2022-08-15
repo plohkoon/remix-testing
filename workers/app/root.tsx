@@ -36,7 +36,12 @@ export const loader = async (args: LoaderArgs) => {
     skip: Math.floor(Math.random() * count)
   }) as User
 
-  return json({ user })
+  return json({ 
+    user: {
+      ...user,
+      avatar: `https://joeschmoe.io/api/v1/${user.name}`
+    }
+  });
 }
 
 export default function App() {

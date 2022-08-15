@@ -23,7 +23,20 @@ export const loader = async (args: LoaderArgs) => {
     throw redirect("/")
   }
 
-  return json({ post });
+  return json({ post: {
+    ...post,
+    author: {
+      ...post.author,
+      avatar: `https://joeschmoe.io/api/v1/${post.author.name}`
+    },
+    comments: post.comments.map(comment => ({
+      ...comment,
+      author: {
+        ...comment.author,
+        avatar: `https://joeschmoe.io/api/v1/${comment.author.name}`
+      }
+    }))
+  }});
 }
 
 const One = () => {

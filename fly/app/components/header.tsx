@@ -29,9 +29,9 @@ export default function Header({
             </Link>
             <div className="hidden ml-10 space-x-8 lg:block">
               {navigation.map((link) => (
-                <a key={link.name} href={link.href} className="text-base font-medium text-white hover:text-sky-50">
+                <Link key={link.name} to={link.href} className="text-base font-medium text-white hover:text-sky-50">
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
